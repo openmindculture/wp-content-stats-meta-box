@@ -1,7 +1,3 @@
-plugins
-node_modules
-vendor
-data
 wp_data
 wordpress
 .wp-cli
@@ -13,4 +9,7 @@ themes/twentytwentytwo
 themes/twentytwentythree
 themes/twentytwentyfour
 themes/twentytwentyfive
+plugins/akismet
+plugins/classic-editor
+plugins/hello.php
 dist

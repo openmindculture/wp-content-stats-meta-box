@@ -1,46 +1,40 @@
-/**
- * Content Stats Calculator
- * Shared utility for calculating content statistics
- */
 (function(window) {
     'use strict';
 
     const ContentStatsCalculator = {
-        /**
-         * Strip HTML tags from content
-         */
         stripHTML: function(html) {
             const tmp = document.createElement('div');
             tmp.innerHTML = html;
             return tmp.textContent || tmp.innerText || '';
         },
 
-        /**
-         * Calculate all content statistics
-         */
         calculate: function(content) {
+            if (!content) {
+                return {
+                    wordCount: 0,
+                    linksIntCount: 0,
+                    linksExtCount: 0,
+                    paragraphCount: 0,
+                    readingTime: 0
+                };
+            }
+
             const plainText = this.stripHTML(content);
-            const words = plainText.split(/\s+/).filter(word => word.length > 0);
+            const words = plainText.trim().split(/\s+/).filter(word => word.length > 0);
 
             return {
                 wordCount: words.length,
-                charCount: plainText.length,
-                charCountNoSpaces: plainText.replace(/\s/g, '').length,
+                linksIntCount: 0, /* TODO */
+                linksExtCount: 0, /* TODO */
                 paragraphCount: (content.match(/<\/p>/g) || []).length,
-                readingTime: Math.ceil(words.length / 200) // 200 words per minute
+                readingTime: Math.max(1, Math.ceil(words.length / 200))
             };
         },
 
-        /**
-         * Format number with locale
-         */
         formatNumber: function(num) {
             return num.toLocaleString();
         },
 
-        /**
-         * Create a debounced function
-         */
         debounce: function(func, wait) {
             let timeout;
             return function executedFunction(...args) {
@@ -54,7 +48,6 @@
         }
     };
 
-    // Export to global scope
     window.ContentStatsCalculator = ContentStatsCalculator;
 
 })(window);
