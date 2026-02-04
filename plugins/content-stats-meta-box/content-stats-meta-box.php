@@ -2,10 +2,9 @@
 /**
  * Plugin Name: Content Stats Meta Box
  * Description: Displays content statistics in a meta box for posts
- * Version: 1.0.0
- * Author: Your Name
+ * Version: 1.0.1
+ * Author: Ingo Steinke (@openmindculture)
  * Text Domain: content-stats-meta-box
- * Domain Path: /languages
  */
 
 if (!defined('ABSPATH') && !is_admin()) {
@@ -46,9 +45,6 @@ class Content_Stats_Meta_Box {
         ?>
         <div class="content-stats-meta-box-wrapper">
             <style>
-                .content-stats-wrapper {
-                    font-size: 13px;
-                }
                 .content-stats-meta-box-row {
                     display: flex;
                     justify-content: space-between;
@@ -68,8 +64,9 @@ class Content_Stats_Meta_Box {
                 .content-stats-meta-box-value::after {
                     display: inline-block;
                     width: 12px;
-                    height: 12px;
                     margin-left: 8px;
+                    position: relative;
+                    top: 2px;
                 }
                 .content-stats-meta-box-value.is-ok::after {
                     content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 64 64' enable-background='new 0 0 64 64'%3E%3Cpath d='M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z' fill='%2343a047'/%3E%3C/svg%3E");

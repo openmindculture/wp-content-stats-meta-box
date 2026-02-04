@@ -27,9 +27,9 @@
             $metaBox.find('[data-stat="links-ext-count"]').text(format(stats.linksExtCount));
             $metaBox.find('[data-stat="links-ext-count"]').toggleClass('is-ok', minmax(2, stats.linksExtCount, 5));
             $metaBox.find('[data-stat="authority-domains-count"]').text(format(stats.authorityDomainsCount));
-            $metaBox.find('[data-stat="authority-domains-count"]').toggleClass('is-ok', (stats.authorityDomainsCount > 1));
+            $metaBox.find('[data-stat="authority-domains-count"]').toggleClass('is-ok', (stats.authorityDomainsCount >= 1));
             $metaBox.find('[data-stat="paragraph-count"]').text(format(stats.paragraphCount));
-            $metaBox.find('[data-stat="paragraph-count"]').toggleClass('is-ok', (stats.paragraphCount > 20));
+            $metaBox.find('[data-stat="paragraph-count"]').toggleClass('is-ok', (stats.paragraphCount >= 20));
             $metaBox.find('[data-stat="reading-time"]').text(stats.readingTime + ' min');
             $metaBox.find('[data-stat="reading-time"]').toggleClass('is-ok', minmax(5, stats.readingTime, 10));
         }
