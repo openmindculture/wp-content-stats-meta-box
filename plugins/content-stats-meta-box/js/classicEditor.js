@@ -11,6 +11,7 @@
         function updateStats(content) {
             const stats = window.ContentStatsCalculator.calculate(content);
             const format = window.ContentStatsCalculator.formatNumber;
+            console.log('updateStats,, stats:', stats)
 
             $metaBox.find('[data-stat="word-count"]').text(format(stats.wordCount));
             $metaBox.find('[data-stat="links-int-count"]').text(format(stats.linksIntCount));
