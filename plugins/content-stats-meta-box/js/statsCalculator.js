@@ -1,5 +1,19 @@
 (function (window) {
     'use strict';
+    
+    const goodUrlSignals = [
+        '.edu',
+        '.mozilla.org/',
+        '.nytimes.com/',
+        '.theguardian.com/',
+        '.gartner.com/',
+        '.reuters.com/',
+        '.sciencedirect.com/',
+        'scholar.google.com/',
+        '.wikipedia.org/',
+        'who.int',
+        'un.org'
+    ]
 
     const ContentStatsCalculator = {
         stripHTML: function (html) {
@@ -8,8 +22,9 @@
             return tmp.textContent || tmp.innerText || '';
         },
 
-        calculate: function (content) { console.log('calculate')
-            if (!content) { console.log('empty conetnt')
+        calculate: function (editor) {
+
+            if (!editor || !editor.getContent()) {
                 return {
                     wordCount: 0,
                     linksIntCount: 0,
@@ -19,16 +34,37 @@
                 };
             }
 
-            const siteHostname = window.location.hostname;
-            const hostnameRegex = new RegExp('//'+siteHostname.replace(/\./g, '\\.'), 'g'); console.log('hostnameRegex', hostnameRegex);
+            const content = editor.getContent();
+            const siteHostnameSignal = '//' + window.location.hostname;
 
             const plainText = this.stripHTML(content);
             const words = plainText.trim().split(/\s+/).filter(word => word.length > 0);
-console.log('words',words); console.log('wordCount: words.length,', words.length);
+
+            let linksInternalCount = 0;
+            let linksExternalCount = 0;
+            let authorityDomainsCount = 0;
+
+            if (editor.dom) {
+                const links = tinymce.activeEditor.dom.select('a');
+                links.forEach(link => {
+                    if (link.href.includes(siteHostnameSignal)) {
+                        linksInternalCount++;
+                    } else {
+                        linksExternalCount++;
+                        goodUrlSignals.forEach((goodUrlSignal) => {
+                            if (link.href.includes(goodUrlSignal)) {
+                                authorityDomainsCount++;
+                            }
+                        })
+                    }
+                });
+            }
+
             return {
                 wordCount: words.length,
-                linksIntCount: 0,
-                linksExtCount: 0,
+                linksIntCount: linksInternalCount,
+                linksExtCount: linksExternalCount,
+                authorityDomainsCount: authorityDomainsCount,
                 paragraphCount: (content.match(/<\/p>/g) || []).length,
                 readingTime: Math.max(1, Math.ceil(words.length / 200))
             };
