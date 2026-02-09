@@ -1,0 +1,47 @@
+.content-stats-meta-box-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.content-stats-meta-box-row:last-child {
+    border-bottom: none;
+}
+
+.content-stats-meta-box-label {
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.content-stats-meta-box-value {
+    color: #50575e;
+}
+
+.content-stats-meta-box-value::after {
+    display: inline-block;
+    width: 12px;
+    margin-left: 8px;
+    position: relative;
+    top: 2px;
+}
+
+.content-stats-meta-box-value.is-ok::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 64 64' enable-background='new 0 0 64 64'%3E%3Cpath d='M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z' fill='%2343a047'/%3E%3C/svg%3E");
+}
+
+.content-stats-meta-box-value:not(.is-ok)::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Ctitle%3E alert %3C/title%3E%3Cstyle type='text/css'%3E* %7B fill: %23fc3 %7D%3C/style%3E%3Cpath d='M19.64 16.36L11.53 2.3A1.85 1.85 0 0 0 10 1.21 1.85 1.85 0 0 0 8.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z'/%3E%3C/svg%3E");
+}
+
+/* TODO use frontend style for headline preview */
+@font-face {
+    font-family: "HealthyFreakRegular";
+    src: url('/wp-content/themes/fasto-child/webFonts/HealthyFreakRegular/font.woff2') format('woff2')
+}
+
+.content-stats-headline-preview {
+    font-family: HealthyFreakRegular, Montserrat, Arial, sans-serif;
+    font-size: 21px; /* scaled down to match line break behavior in post teaser grid */
+    line-height: 1.23em;
+}
