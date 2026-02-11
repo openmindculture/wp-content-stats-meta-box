@@ -6,7 +6,7 @@
  * Text Domain: content-stats-meta-box
  * Domain Path: /languages
  * Description: Displays content statistics in a meta box for posts
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: openmindculture
  * Author URI: https://wordpress.org/support/users/openmindculture/
  */
@@ -57,6 +57,15 @@ class Content_Stats_Meta_Box
                 echo get_the_title($post->ID);
                 ?></div>
 
+            <div class="content-stats-excerpt-preview"><?php
+                echo get_the_excerpt($post->ID);
+                ?></div>
+
+            <div class="content-stats-focus-keyword">
+                <span class="content-stats-meta-box-label"><?php _e('Focus:', self::TEXT_DOMAIN); ?></span>
+                <span data-stat="focus-keyword"></span>
+            </div>
+
             <div class="content-stats-meta-box-row" title="goal: between five and ten">
                 <span class="content-stats-meta-box-label"><?php _e('Est. Reading Time:', self::TEXT_DOMAIN); ?></span>
                 <span class="content-stats-meta-box-value" data-stat="reading-time">-</span>
@@ -65,6 +74,11 @@ class Content_Stats_Meta_Box
             <div class="content-stats-meta-box-row" title="goal: 1000 - 2500">
                 <span class="content-stats-meta-box-label"><?php _e('Words:', self::TEXT_DOMAIN); ?></span>
                 <span class="content-stats-meta-box-value" data-stat="word-count">-</span>
+            </div>
+
+            <div class="content-stats-meta-box-row" title="goal: at least twenty">
+                <span class="content-stats-meta-box-label"><?php _e('Paragraphs:', self::TEXT_DOMAIN); ?></span>
+                <span class="content-stats-meta-box-value" data-stat="paragraph-count">-</span>
             </div>
 
             <div class="content-stats-meta-box-row" title="goal: 2 - 9 and more than external">
@@ -80,11 +94,6 @@ class Content_Stats_Meta_Box
             <div class="content-stats-meta-box-row" title="goal: at least one">
                 <span class="content-stats-meta-box-label"><?php _e('Reputable Domains:', self::TEXT_DOMAIN); ?></span>
                 <span class="content-stats-meta-box-value" data-stat="authority-domains-count">-</span>
-            </div>
-
-            <div class="content-stats-meta-box-row" title="goal: at least twenty">
-                <span class="content-stats-meta-box-label"><?php _e('Paragraphs:', self::TEXT_DOMAIN); ?></span>
-                <span class="content-stats-meta-box-value" data-stat="paragraph-count">-</span>
             </div>
 
         </div>

@@ -32,6 +32,10 @@
             $metaBox.find('[data-stat="paragraph-count"]').toggleClass('is-ok', (stats.paragraphCount >= 20));
             $metaBox.find('[data-stat="reading-time"]').text(stats.readingTime + ' min');
             $metaBox.find('[data-stat="reading-time"]').toggleClass('is-ok', minmax(5, stats.readingTime, 10));
+            var focusKeywordField = document.getElementById('focus-keyword-input-metabox');
+            if (focusKeywordField && focusKeywordField.value) {
+                $metaBox.find('[data-stat="focus-keyword"]').text(focusKeywordField.value);
+            }
         }
 
         function getEditor() {

@@ -34,6 +34,10 @@
     content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Ctitle%3E alert %3C/title%3E%3Cstyle type='text/css'%3E* %7B fill: %23fc3 %7D%3C/style%3E%3Cpath d='M19.64 16.36L11.53 2.3A1.85 1.85 0 0 0 10 1.21 1.85 1.85 0 0 0 8.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z'/%3E%3C/svg%3E");
 }
 
+.content-stats-focus-keyword {
+    margin-top: 11px;
+}
+
 /* TODO use frontend style for headline preview */
 @font-face {
     font-family: "HealthyFreakRegular";
@@ -44,4 +48,8 @@
     font-family: HealthyFreakRegular, Montserrat, Arial, sans-serif;
     font-size: 21px; /* scaled down to match line break behavior in post teaser grid */
     line-height: 1.23em;
+}
+
+.content-stats-excerpt-preview {
+    font-size: 11px;
 }
