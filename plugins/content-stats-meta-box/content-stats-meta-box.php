@@ -6,7 +6,7 @@
  * Text Domain: content-stats-meta-box
  * Domain Path: /languages
  * Description: Displays content statistics in a meta box for posts
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: openmindculture
  * Author URI: https://wordpress.org/support/users/openmindculture/
  */
