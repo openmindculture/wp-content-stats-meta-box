@@ -47,7 +47,7 @@
             if (editor.dom) {
                 const links = tinymce.activeEditor.dom.select('a');
                 links.forEach(link => {
-                    if (link.href.includes(siteHostnameSignal)) {
+                    if (link.href.includes(siteHostnameSignal) && !link.href.includes('wp-content/uploads')) {
                         linksInternalCount++;
                     } else {
                         linksExternalCount++;
