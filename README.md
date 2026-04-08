@@ -22,6 +22,10 @@ Initial releases have not yet been optimized for efficient performance. They onl
 
 Feel free to review the open [issues on GitHub](https://github.com/openmindculture/wp-content-stats-meta-box/issues) and contribute to the project. 
 
+## Optional Functionality
+
+- adds a link to post drafts in the WP-Admin Posts menu
+
 ## Development
 
 - `docker compose up --build`
