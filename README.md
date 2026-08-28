@@ -2,7 +2,9 @@
 
 A simple WordPress plugin showing stats while using classic or block editor.
 Currently, as of plugin release 1.2.0, only the classic version is tested.
-If you are interested in the block editor version I am looking forward to your pull requests!
+If you are interested in the block editor version, I am looking forward to your pull requests!
+
+This plugin has been tested with the WordPress 7.1 and earlier classic WordPress versions, and PHP version from PHP 7.0 upwards. 
 
 ## Installation and Usage 
 

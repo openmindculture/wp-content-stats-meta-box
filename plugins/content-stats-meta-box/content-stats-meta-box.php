@@ -7,6 +7,7 @@
  * Domain Path: /languages
  * Description: Displays content statistics in a meta box for posts
  * Version: 1.4.0
+ * Tested up to: 7.1
  * Author: openmindculture
  * Author URI: https://wordpress.org/support/users/openmindculture/
  */
